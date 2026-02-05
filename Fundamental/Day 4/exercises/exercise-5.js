@@ -12,6 +12,7 @@ function splitString(string) {
       newWord = '';
     } else {
       newWord += string[i];
+      
     }
   }
   console.log(newArray);
