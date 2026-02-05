@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const products = [
+        'Indomie Goreng Original 110gr',
+        'Indomie Kuah Kari Ayam Spesial',
+        'Pop Mie Kuah Bakso 55gr',
+      ];
+      const productsPrice = [3250, 3050, 3900];
+      const productsStock = [95, 50, 30];
+      let listProducts = '';
+      for (let i = 0; i < products.length; i++) {
+        listProducts += `${i + 1}. ${products[i]} - Rp ${productsPrice[i]} - Stock: ${productsStock[i]} \n`;
+      }
+      function declareProduct() {
+        const inputProduct = parseInt(
+          prompt(`${listProducts}` + '\nMasukkan nomor produk: '),
+        );
+        let chosenProduct;
+        productValidation(inputProduct);
+        function productValidation(inputProduct) {
+          if (inputProduct > products.length || inputProduct < 1 || isNaN(inputProduct)) {
+            alert('Produk tidak tersedia');
+            declareProduct();
+          } else {
+            chosenProduct = products[inputProduct - 1];
+            declareQuantity()
+          }
+        }
+        function declareQuantity() {
+          const inputQuantity = parseInt(prompt('Masukkan jumlah produk: '));
+          if (inputQuantity > productsStock[inputProduct - 1]) {
+            alert('Stok tidak mencukupi');
+            declareQuantity();
+          } else {
+            productsStock[inputProduct - 1] -= inputQuantity;
+            alert(`Terima kasih telah membeli ${inputQuantity} ${chosenProduct}`);
+          }
+      }}
+      declareProduct();
+    </script>
+  </body>
+</html>
