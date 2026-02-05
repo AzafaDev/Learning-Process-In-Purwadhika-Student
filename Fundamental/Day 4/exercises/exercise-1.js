@@ -19,5 +19,5 @@ function triangle(height) {
   }
 }
 
-triangle(10);
+triangle(4);
 

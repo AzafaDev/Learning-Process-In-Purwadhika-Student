@@ -9,17 +9,18 @@
 ○ > 39.9 return “obesity”z */
 
 function calculateBMI(weight, height) {
-  let bmi = weight / (height * height);
+  let bmi = (weight / (height * height)).toFixed(1);
   if (bmi < 18.5) {
-    return 'less weight';
+    
+    return `Your BMI is ${bmi}, you are Less weight`
   } else if (bmi >= 18.5 && bmi <= 24.9) {
-    return 'ideal';
+    return `Your BMI is ${bmi}, you are ideal`;
   } else if (bmi >= 25.0 && bmi <= 29.9) {
-    return 'overweight';
+    return `Your BMI is ${bmi}, you are overweight`;
   } else if (bmi >= 30.0 && bmi <= 39.9) {
-    return 'very overweight';
+    return `Your BMI is ${bmi}, you are very overweight`;
   } else {
-    return 'obesity';
+    return `Your BMI is ${bmi}, you are obesity`;
   }
 }
 
