@@ -24,8 +24,8 @@ function showStatus(player1, player2) {
   );
 }
 
-function damage(player1, player2) {
-  player2[1] -= player1[2];
+function damage(attacker, defender) {
+  attacker[1] -= defender[2];
 }
 
 function randomItem() {
@@ -45,20 +45,21 @@ function useItem(player, item) {
   );
 }
 
+function playerTurn(attacker, defender) {
+    let item = randomItem();
+    useItem(attacker, item);
+    damage(attacker, defender);
+    showStatus(player1, player2);
+}
+
 function start() {
   showStatus(player1, player2);
   while (player1[1] > 0 && player2[1] > 0) {
-    let item1 = randomItem();
-    let item2 = randomItem();
-    useItem(player1, item1);
-    useItem(player2, item2);
-    damage(player1, player2);
-    showStatus(player1,player2);
+    playerTurn(player1, player2);
     if (player1[1] <= 0 || player2[1] <= 0) {
       break;
     }
-    damage(player2, player1);
-    showStatus(player1, player2);
+    playerTurn(player2, player1);
   }
   if (player1[1] <= 0) {
     console.log(`${player2[0]} win!`);
