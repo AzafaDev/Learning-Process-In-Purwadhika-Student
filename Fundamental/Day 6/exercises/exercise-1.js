@@ -34,37 +34,24 @@ const student4 = new Student('Jill Doe', 'JillDoe@example.com', 23, 70);
 const student5 = new Student('Joe Doe', 'JoeDoe@example.com', 24, 60);
 const student6 = new Student('Judy Doe', 'JudyDoe@example.com', 25, 50);
 
-function calculateScore(arr){
-    let score = {
-        highest: 0,
-        lowest: 100,
-        average: 0
-    }
-    let age = {
-        highest: 0,
-        lowest: 100,
-        average: 0
-    }
-    
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].score > score.highest) {
-            score.highest = arr[i].score;
-        }
-        if (arr[i].score < score.lowest) {
-            score.lowest = arr[i].score;
-        }
-        if (arr[i].age > age.highest) {
-            age.highest = arr[i].age;
-        }
-        if (arr[i].age < age.lowest) {
-            age.lowest = arr[i].age;
-        }
-        score.average += arr[i].score;
-        age.average += arr[i].age;
-    }
-    score.average = (score.average / arr.length).toFixed(2)
-    age.average = (age.average / arr.length).toFixed(2)
-    return {score, age}
+function calculateScore(arr) {
+  let scores = arr.Map((student) => student.score);
+  let ages = arr.Map((student) => student.age);
+  let averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
+  let averageAge = ages.reduce((a, b) => a + b, 0) / ages.length;
+
+  return {
+    score: {
+      highest: Math.max(...scores),
+      lowest: Math.min(...scores),
+      average: averageScore,
+    },
+    age: {
+      highest: Math.max(...ages),
+      lowest: Math.min(...ages),
+      average: averageAge,
+    },
+  };
 }
 
-console.log(calculateScore([student1, student2, student3, student4]))
+console.log(calculateScore([student1, student2, student3, student4]));
