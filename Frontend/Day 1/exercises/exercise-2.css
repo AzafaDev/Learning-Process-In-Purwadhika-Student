@@ -1,0 +1,119 @@
+
+      @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--color-yellow, rgba(244, 208, 78, 1));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      .main-container {
+        width: 327px;
+        height: 501px;
+        border-radius: 20px;
+        border-width: 1px;
+        background-color: white;
+        outline: black solid 1px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .main-container::after {
+        content: '';
+        display: block;
+        width: 327px;
+        height: 501px;
+        background-color: black;
+        border-radius: 20px;
+        position: absolute;
+        top: 0.5em;
+        left: 0.5em;
+        z-index: -1;
+      }
+      .blog-image {
+        width: 279px;
+        height: 200px;
+        opacity: 1;
+        border-radius: 10px;
+        color: rgba(244, 208, 78, 1);
+        position: relative;
+        margin: 24px;
+      }
+      .learning {
+        width: 73px;
+        height: 26px;
+        border-radius: 4px;
+        background-color: rgba(244, 208, 78, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 24px;
+      }
+      .learning p {
+        font-family: 'Figtree', sans-serif;
+        font-weight: 800;
+        font-style: ExtraBold;
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 0%;
+      }
+      .p-date {
+        font-family: 'Figtree', sans-serif;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 12px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        margin: 12px 0 0 24px;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+      }
+      .title {
+        font-family: 'Figtree', sans-serif;
+        font-weight: 800;
+        font-style: ExtraBold;
+        font-size: 20px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        margin: 12px 0 0 24px;
+      }
+      .desc {
+        color: var(--color-gray-500, rgba(107, 107, 107, 1));
+        font-family: 'Figtree', sans-serif;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0%;
+        margin: 12px 0 0 24px;
+      }
+      .author {
+        width: 149px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        margin: 24px 0 0 24px;
+      }
+      .author img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+      .author p {
+        font-family: 'Figtree', sans-serif;
+        font-weight: 800;
+        line-height: 150%;
+        letter-spacing: 0%;
+        margin-left: 12px;
+      }
+    

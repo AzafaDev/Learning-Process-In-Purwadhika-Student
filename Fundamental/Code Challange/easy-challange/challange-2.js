@@ -30,11 +30,12 @@ Follow up: Could you solve it without converting the integer to a string?
 
 var isPalindrome = function (x) {
   if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
-  let num = x;
+
   let rev = 0;
-  while (num > 0) {
-    rev = rev * 10 + num % 10;
-    num = Math.floor(num / 10);
+  while (x > rev) {
+    rev = (rev * 10) + (x % 10);
+    x = Math.floor(x / 10);
   }
-  return rev === x;
+  return x === rev || x === Math.floor(rev / 10);
+  
 };
